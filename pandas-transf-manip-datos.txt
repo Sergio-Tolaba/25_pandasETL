@@ -1,0 +1,24 @@
+Pandas: transformación y manipulación de datos
+01. Conociendo el problema
+01
+Presentación
+******************************************************************
+02
+Preparando el ambiente
+ Siguiente pregunta
+
+Antes de empezar…
+
+Google Collaboratory, o Colab para abreviar, es una herramienta gratuita basada en la nube que le permite ejecutar y escribir código Python sin necesidad de configurar software ni hardware local. Es una excelente herramienta para ejecutar código de análisis de datos y otros tipos de proyectos de programación.
+
+Para comenzar a utilizar la plataforma es necesario tener una cuenta de Gmail. Si aún no tienes una, deberás crearla. Después de iniciar sesión, vaya a la página de Google Colab y haga clic en el menú superior en "Archivo" y elija la opción "Nuevo cuaderno". Es el banco de trabajo de Colab donde puedes escribir y ejecutar código Python.
+
+Colab se ejecuta en los servidores de Google, por lo que proporciona una máquina virtual en la nube con recursos como CPU, memoria y espacio en disco. Para ejecutar un código, simplemente escríbalo en una celda de código y haga clic en el botón "Ejecutar" o presione Shift + Enter.
+
+La base de datos a utilizar está disponible aquí.
+
+¿Vamos a empezar?
+*******************************************************************************
+03
+Conociendo el problema: Precio de los alquileres similar a booking y BandB. En el curso haremos la preparación de los datos. No haremos análisis. Sólo transformaremos y manipularemos los datos para que un algoritmo analice las características: comodidades, tamaño, ocupación en un período y finalmente sugerir al anfitrión el PRECIO A COBRAR por Tarifa Diaria que garantice la Ganancia en períodos de alta demanda
+(Precios inteligentes surgen de un algoritmo)Primero conocer la estructura de los datos
