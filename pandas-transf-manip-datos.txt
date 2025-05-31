@@ -2,6 +2,11 @@ Pandas: transformación y manipulación de datos
 01. Conociendo el problema
 01
 Presentación
+¡Claro! En esta clase de introducción al curso de Pandas para tratamiento y manipulación de datos, el instructor Alejandro Gamarra, también conocido como el profesor Lejo, da la bienvenida a los estudiantes. El curso se centra en el uso de la biblioteca Pandas para procesar y manipular datos, específicamente en el contexto de fijación de precios inteligentes en el sector inmobiliario.
+
+Durante el curso, se trabajará con una variedad de datos, incluyendo datos numéricos, de texto y de tiempo, utilizando Google Colab. Se enfatiza la importancia de comprender el tratamiento y la limpieza de datos para obtener un producto final efectivo. Además, se recomienda que los estudiantes tengan conocimientos previos sobre Pandas, lectura de archivos JSON, y selección y agrupación de datos antes de comenzar.
+
+El instructor anima a los estudiantes a prepararse y avanzar al siguiente vídeo para iniciar el aprendizaje. ¡Espero que esto te ayude! Si tienes alguna pregunta específica sobre el contenido, no dudes en preguntar.
 ******************************************************************
 02
 Preparando el ambiente
@@ -22,3 +27,994 @@ La base de datos a utilizar está disponible aquí.
 03
 Conociendo el problema: Precio de los alquileres similar a booking y BandB. En el curso haremos la preparación de los datos. No haremos análisis. Sólo transformaremos y manipularemos los datos para que un algoritmo analice las características: comodidades, tamaño, ocupación en un período y finalmente sugerir al anfitrión el PRECIO A COBRAR por Tarifa Diaria que garantice la Ganancia en períodos de alta demanda
 (Precios inteligentes surgen de un algoritmo)Primero conocer la estructura de los datos
+datos = pd.read_json('archivo.json') pero al mostrar datos vemos info_inmuebles con muchos datos anidados
+---------------------------------------------------------------
+En esta clase, se introdujo el problema de negocio relacionado con la tarificación inteligente en plataformas de hospedaje como Booking y Airbnb. Se explicó que el objetivo del curso es preparar y manipular datos, sin analizarlos en esta etapa. Se mencionó la importancia de conocer y analizar los datos para crear un algoritmo que sugiera precios basados en características de las propiedades y la demanda.
+
+Se discutió cómo trabajar con Google Colab, donde los estudiantes deben subir sus archivos de datos a la nube. Se mostró cómo importar la biblioteca Pandas en Python, que es esencial para manipular los datos. Luego, se explicó cómo leer un archivo en formato JSON utilizando Pandas, creando una variable para almacenar los datos y mostrando los primeros registros.
+
+Finalmente, se anticipó que en la próxima clase se normalizarán los datos para visualizarlos en un formato de columna, y se animó a los estudiantes a importar los archivos y llegar hasta ese punto antes de continuar.
+*********************************************************************
+04
+Para saber más: pricing inteligente
+ Siguiente pregunta
+
+El pricing inteligente para alojamiento es una estrategia para estimar precios de forma automatizada y dinámica, que considera factores como oferta y demanda, estacionalidad, eventos locales, características de ubicación, entre otros. Con base en esta información, un algoritmo puede ajustar los precios para maximizar los ingresos y la rentabilidad del propietario.
+
+Normalmente, esta estrategia se aplica a un modelo de inteligencia artificial que ajusta automáticamente los precios diarios. Por ejemplo, si aumenta la demanda de alojamiento en un destino en particular, los precios inteligentes ajustarán automáticamente las tarifas de las habitaciones hacia arriba para maximizar los ingresos de la propiedad. Del mismo modo, si la demanda disminuye, los precios inteligentes ajustarán los precios a la baja para mantener la ocupación de las propiedades y evitar pérdidas financieras.
+
+Aunque el aprendizaje automático se utiliza a menudo en sistemas de precios inteligentes, existen otros enfoques que se pueden utilizar para implementar estos sistemas. Por ejemplo, puede utilizar un modelo de reglas basado en lógica y heurística para definir reglas y condiciones de precios.
+
+Aun así, es importante destacar que el uso del aprendizaje automático puede ofrecer beneficios adicionales, como la capacidad de analizar grandes volúmenes de datos, identificar patrones de comportamiento del consumidor y ajustar los precios de forma más precisa y dinámica.
+
+****************************************************************************************************
+05
+Comprendiendo los datos
+datos = pd.json_normalize(datos['info_inmuebles']) luego datos.head().Verifico que es un df=>datos.info(). Luego veo las columnas y hay muchas listas y diccionarios que hay que transformar a nuevas columnas
+-----------------------------------------------------------------------
+En esta clase, aprendimos sobre la importancia de transformar y manipular datos para poder entenderlos mejor. Nos enfocamos en cómo extraer información de diccionarios dentro de una columna específica llamada Info Inmuebles. Para ello, utilizamos el método JSON Normalize de Pandas, que nos permite normalizar datos en formato JSON y convertirlos en un DataFrame, facilitando su visualización y análisis.
+
+Al aplicar este método, logramos transformar un diccionario en un DataFrame, lo que nos permitió ver los datos en un formato de columnas, haciendo más fácil la interpretación de la información. Observamos que los datos contenían diferentes tipos de valores, como números, textos y listas, lo que indica que aún hay trabajo por hacer para preparar completamente los datos para su análisis.
+
+En resumen, esta clase nos introdujo a la normalización de datos y a la transformación de estructuras complejas en formatos más manejables, sentando las bases para un análisis de datos más efectivo en las siguientes lecciones.
+
+Copiar texto de Luri al portapapeles
+
+//////////////////////////////////////////////////////////////////////////////
+06
+Usos para json_normalize
+ Siguiente pregunta
+
+Durante el proyecto, usamos json_normalize para “normalizar” un objeto, buscando convertir sus datos a un formato más estructurado, como un DataFrame. Sabiendo esto, marca la alternativa que te indica la forma correcta de utilizar json_normalize.
+
+Alternativa incorreta
+Cuando un archivo JSON tiene datos anidados (con varios niveles de anidamiento), el método json_normalize() se utiliza para transformar estos datos en un formato de tabla con múltiples columnas.
+
+
+El método json_normalize() se utiliza para normalizar un objeto JSON que puede tener una o varias jerarquías. Cuando el objeto se transforma a un formato de tabla de varias columnas, cada columna representa una llave JSON y cada fila representa un registro. Es una forma de hacer que los datos sean más fáciles de manipular y analizar.
+
+Alternativa incorreta
+Cuando usamos un archivo JSON con más de un nivel de anidamiento, no podemos usar json_normalize.
+
+
+Alternativa incorreta
+Sólo podemos usar json_normalize en archivos JSON simples, ya que no es capaz de manejar archivos JSON muy complejos.
+**********************************************************************************************
+07
+Desafío: trabajando en otros contextos
+ Siguiente pregunta
+
+Trabajando en otros contextos
+
+Ha llegado el momento de poner en práctica todo lo aprendido durante las clases. ¡Preparé dos proyectos adicionales para que los desarrollemos durante el curso, para asegurarnos de que podamos practicar mucho! Para ello trabajaremos con 2 nuevos conjuntos de datos, pero esta vez serán mucho más pequeños. Las bases de datos están disponibles para descargar aquí:
+
+Proyecto Desafío 1: Ventas Online - dados_vendas_clientes.json;
+Proyecto Desafío 2: Administración de Condominios - dados_locacao_imoveis.json.
+En cada clase desarrollaremos una etapa de los proyectos. Así que guarde su código de construcción para cada desafío para poder aplicarlo en los desafíos posteriores.
+
+Etapa 1
+
+Proyecto Desafío 1: Ventas Online
+El objetivo de este proyecto es analizar los resultados de un evento con los clientes de una empresa de venta online. Se recopiló un conjunto de datos que contiene los clientes que más gastaron en productos durante los 5 días de ventas, que es la duración del evento. Este análisis identificará al cliente con la mayor compra esta semana, quien recibirá un premio de la tienda, y posteriormente, puede ayudar a la empresa a crear nuevas estrategias para atraer más clientes.
+
+La base de datos utilizada en este análisis es dados_vendas_clientes.json y contiene información importante sobre los clientes, como el nombre registrado del cliente, el monto total pagado al momento de la compra y el día de la compra.
+
+Sabiendo esta información, el desafío del proyecto 1: ventas online será abrir la base de datos con Pandas y aplicar json_normalize.
+
+Proyecto Desafío 2: Administración de Condominios
+Administrar condominios es una tarea que requiere mucha atención y organización. Entre las diversas responsabilidades de gestión se encuentra el cobro del alquiler a los inquilinos. Para garantizar la buena salud financiera de la empresa, es fundamental que estos pagos se realicen de forma regular y puntual. Sin embargo, sabemos que esto no siempre sucede.
+
+Teniendo esto en cuenta, propongo un desafío de procesamiento de datos con el objetivo de analizar el retraso en el pago del alquiler en el condominio de algunos residentes. Pongo a disposición la base de datos dados_locacao_imoveis.json, que contiene información sobre el departamento de los inquilinos, el día acordado para el pago del alquiler, el día en que se realiza el pago del alquiler y el monto del alquiler.
+
+Con esta información, el desafío del proyecto 2: administración del condominio será similar al desafío del proyecto 1, abrir la base de datos con Pandas y aplicar json_normalize al DataFrame.
+
+Ver opinión del instructor
+Opinión del instructor
+
+Puede haber varias formas de resolver un problema. Presentaré cómo resolví los problemas y esto no quiere decir que estas sean las mejores soluciones, sino que son una opción de solución.
+
+Proyecto Desafío 1: Ventas Online
+
+# Import de pandas
+import pandas as pd
+# Leer el archivo json con read_json
+datos = pd.read_json('/content/dados_vendas_clientes.json')
+# Aplicar json_normalize en la columna dados_vendas
+datos = pd.json_normalize(datos['dados_vendas'])
+# Mostrar valores
+datos
+Copia el código
+Projecto Desafio 2: Administración de Condominios
+
+# Import de pandas
+import pandas as pd
+# Leer el archivo json con read_json
+datos = pd.read_json('/content/dados_locacao_imoveis.json')
+# Aplicar json_normalize en la columna dados_locacao
+datos = pd.json_normalize(datos['dados_locacao'])
+# Mostrar valores
+datos
+Copia el código
+Mis soluciones con el proyecto de los desafíos se realizaron en un notebook Python que estará disponible al final del curso.
+***************************************************************************************
+08
+Lo que aprendimos
+ Siguiente pregunta
+
+En esta aula, aprendimos a:
+
+Leer archivos de datos con read_json;
+Identificar los ajustes necesarios para un posterior procesamiento en un conjunto de datos;
+Normalizar la visualización de los datos con el método json_normalize;
+Comprender el problema de la fijación de precios inteligente.
+*********************************************************************************
+*********************************************************************************
+02. Datos numéricos
+01
+Proyecto del aula anterior
+ Siguiente pregunta
+
+Si lo desea, puede descargar aquí el proyecto del curso en el punto donde paramos la clase anterior.
+***************************************************************************************************
+02
+Para saber más: descripción de los datos
+ Siguiente pregunta
+
+Cuando trabajamos con cualquier conjunto de datos, necesitamos saber qué información nos aportan esos datos, porque solo así podremos estudiarlos y analizarlos para desarrollar una solución de análisis y procesamiento de datos.
+
+En este curso trabajaremos con el conjunto de datos presentes en el archivo datos_hosting.json y, para avanzar en nuestros estudios sobre los datos que proporciona este archivo, entenderemos qué información trae cada columna.
+
+evaluacion_general: se refiere a la puntuación media otorgada para evaluar el alojamiento en la propiedad.
+experiencia_local: describe las experiencias ofrecidas durante su estancia en la propiedad.
+max_hospedes: informa el número máximo de invitados que permite la ubicación.
+descripcion_local: describe la propiedad.
+descripcion_vecindad: describe el vecindario alrededor de la propiedad.
+cantidad_baños: informa el número de baños disponibles.
+cantidad_cuartos: informa el número de habitaciones disponibles.
+cantidad_camas: informa el número de camas disponibles.
+modelo_cama: informa el modelo de cama ofrecido.
+comodidades: informa las comodidades que ofrece la propiedad.
+cuota_deposito: informa la tarifa mínima de depósito para la seguridad del hosting.
+cuota_limpieza: informa el cargo cobrado por el servicio de limpieza.
+precio: se refiere al precio base a cobrar por la estancia diaria en la propiedad.
+*********************************************************************************************************
+03
+Retirando las listas= Varias columnas con distintos tipos de datos (columnas numéricas, con listas(de texto, también numéricos), con diccionarios). Antes habíamos transformado una columna= 'info_inmueble' en varias columnas= evaluacion_general, experiencia local, max_hospedaje, etc// Ahora como tenemos muchas columnas con listas que tienen elementos. Vamos a sacar cada elemento fuera de las listas y lo hacemos transformando cada registro en varios registros.
+1.Mostramos todos los nombres de las columnas de mi df
+
+columnas = list(datos.columns) y los muestro con columnas
+
+2.Identificamos qué columnas tiene lista o diccionario de elementos
+Guardo en una variable los nombres de esas columnas que tienen a su vez listas o diccionarios
+
+datos =datos.explode(columnas[3:]) #.explode se desglosaron las listas
+datos.reset_index(drop=True, inplace=True)
+datos.info() # cuando pandas no sabe el tipo de valores pone objet pero no todos son object (str si), hay números
+---------------------------------------------------------------------
+En esta clase, aprendimos sobre cómo manejar columnas que contienen listas dentro de un DataFrame en Pandas. Se explicó que, al tener elementos agrupados en listas, es difícil visualizar y entender los datos. Para solucionar esto, se utiliza el método explode, que permite transformar un registro con múltiples elementos en varios registros, cada uno con un solo elemento de la lista.
+
+Se mostró cómo identificar las columnas que contienen listas y cómo aplicar el método explode a partir de una posición específica en la lista de nombres de columnas. Después de aplicar explode, se resetearon los índices del DataFrame para asegurarse de que no hubiera índices repetidos, utilizando el método reset_index con los parámetros inplace=True y drop=True.
+
+Finalmente, se mencionó que, tras la transformación, es importante verificar los tipos de datos de las columnas, ya que Pandas puede asignar el tipo de dato Object cuando no puede determinar el tipo correcto. Esto nos lleva a la necesidad de realizar más transformaciones en el DataFrame para asegurar que cada columna tenga el tipo de dato adecuado, lo cual se abordará en la próxima clase.
+**********************************************************************************
+04
+Convirtiendo datos numericos (object => int64, float64)
+datos[col_cantidad]=datos[col_cantidad].astype(np.int64)
+datos['evaluacion_general']=datos['evaluacion_general'].astype(np.float64)
+datos.info()
+---------------------------------------------------------
+En esta clase, aprendimos sobre la conversión de tipos de datos numéricos en un DataFrame utilizando la biblioteca Pandas y Numpy en Python. Comenzamos identificando los tipos de datos, como enteros y decimales, y cómo convertir columnas que están como object a tipos numéricos adecuados, como int64 para enteros y Float64 para decimales.
+
+Vimos un ejemplo práctico donde transformamos la columna Max hospedes de tipo object a tipo entero usando el método asType() de Pandas. Es importante recordar que esta conversión solo se muestra en memoria y no modifica el DataFrame a menos que asignemos el resultado de nuevo a la columna.
+
+Además, aprendimos a crear una lista de columnas numéricas para realizar conversiones en múltiples columnas de manera más eficiente. También discutimos la conversión de columnas que contienen valores decimales y cómo manejar columnas que tienen caracteres no numéricos, como el símbolo del dólar, que impiden la conversión directa a tipo float.
+
+Finalmente, se mencionó que es necesario limpiar los datos antes de realizar conversiones, eliminando caracteres extraños para asegurar que solo haya números en las columnas que deseamos transformar.
+*********************************************************************************
+05
+Para saber más: precisión de valores numéricos
+ Siguiente pregunta
+
+Por lo general, cuando los datos son muy grandes y tenemos poca memoria disponible, es habitual utilizar tipos de datos más compactos para reducir el consumo de memoria. Sin embargo, siempre es importante asegurarse de que la elección del tipo de datos no perjudique la precisión o exactitud de los resultados.
+
+Cuando trabajamos con números enteros con Python, podemos tener diferentes tipos de datos, cada uno con sus limitaciones y características. Durante las clases trabajamos con int64, un número entero con precisión de 64 bits. Para entender el significado de esta precisión, es importante conocer algunos términos técnicos, como byte y bit:
+
+Byte: es una unidad de medida de información, que representa un conjunto de 8 bits.
+Bit: es la unidad de información más pequeña utilizada en los sistemas digitales, y puede tomar los valores de 0 o 1.
+Tipo entero
+
+Con los conceptos de bit y byte claros, podemos comprender mejor el significado de int64, que es el tipo de entero que utiliza 8 bytes de almacenamiento: 8 bits en cada byte, lo que da como resultado 64 bits en total. Este tipo de entero es capaz de representar números muy grandes, que pueden oscilar entre -9.223.372.036.854.775.808 y 9.223.372.036.854.775.807.
+
+Además, tenemos otros números enteros cuya precisión se puede definir, como int32, un tipo de datos entero que utiliza 4 bytes - 8 bits en cada byte, lo que da como resultado 32 bits en total. Es capaz de representar números enteros menores que los representados por int64, con un máximo de -2.147.483.648 a 2.147.483.647.
+
+Puede ser más común encontrar los tipos int64 y int32, pero puede ser necesario, en algunas situaciones, utilizar otros tipos de datos enteros, como int8 o int16. Tipos de datos como estos son útiles cuando necesita ahorrar más memoria y no trabaja con valores grandes. Puede consultar los tipos de números enteros en la siguiente tabla:
+
+Tipo de dado	Número de bits	Valor mínimo	Valor máximo
+int8	8	-128	127
+int16	16	-32.768	32.767
+int32	32	-2.147.483.648	2.147.483.647
+int64	64	-9.223.372.036.854.775.808	9.223.372.036.854.775.807
+La elección de qué valor de precisión dependerá de la situación y la naturaleza de los datos que se manipulan. Si los valores que se analizan son relativamente pequeños, el uso de int32, por ejemplo, puede ser suficiente y puede ahorrar espacio en la memoria. Sin embargo, si estuviéramos trabajando con datos científicos, por ejemplo, que requieren valores muy grandes, es posible que necesitemos usar int64.
+
+Tipo float
+
+Además de los números enteros, otros tipos de datos, como float, también utilizan esta opción de precisión como opción para controlar el espacio de memoria. Al igual que los números enteros, el tipo float también tiene opciones de precisión: entre los tipos más comunes se encuentran float32 y float64.
+
+El tipo float64 es un número de punto flotante con 64 bits de precisión, que representa un número decimal de hasta 15 dígitos. Por otro lado, float32 es más pequeño tanto en su capacidad de bits, con 32 en total, como en su capacidad de precisión decimal, con capacidad de precisión de hasta 7 dígitos.
+
+***********************************************************************************
+06
+Numeros en strings
+06 Números en string
+Saco todo lo que no es número y si figura con separador de miles o con coma como separador decimal. Tiene que quedar el número con punto y el decimal
+Luego paso el str a float64
+# A la columna $Precios, le elimino $, le elimino serarador de miles (,) y los espacios
+datos['precio'] = datos['precio'].apply(lambda x: x.replace('$','').replace(',','').strip()) 
+datos['precio'] = datos['precio'].astype(np.float64)
+datos.info()
+---------------------------------------------------------------------
+En esta clase, aprendimos sobre la manipulación de datos numéricos en Pandas, específicamente cómo manejar columnas que contienen valores en formato de string con símbolos de moneda y separadores decimales.
+
+El instructor explicó que es necesario eliminar estos símbolos (como el dólar y las comas) para poder trabajar correctamente con los datos numéricos. Para ello, se utiliza el método apply junto con una función lambda, que permite aplicar transformaciones a cada valor de la columna precio.
+
+La transformación incluye reemplazar el símbolo de dólar y las comas por nada, así como eliminar espacios en blanco utilizando el método strip. Sin embargo, es importante destacar que, aunque se eliminan los caracteres no deseados, el tipo de datos de la columna aún no se cambia automáticamente a decimal. Por lo tanto, después de realizar estas transformaciones, se debe cambiar el tipo de datos de la columna a decimal para que los datos sean utilizables en cálculos.
+
+Finalmente, se mencionó que también se pueden aplicar estas transformaciones a otras columnas de tipo decimal en un solo comando, lo cual se abordará en la próxima clase.
+*******************************************************************
+07
+Tratando números en strings
+ Siguiente pregunta
+
+Para realizar un estudio financiero de distribución salarial en una empresa es necesario transformar los datos relativos a los cargos y prepararlos para un estudio estadístico.
+
+Por lo tanto, al leer el archivo con los datos, te encuentras con el siguiente DataFrame:
+
+Cargo	Cantidad	Salario
+0	Gerencia	2 personas	$10.000 reales
+1	Coordinación	1 persona	$8.000 reales
+2	Supervisión	3 personas	$7.000 reales
+3	Analista	4 personas	$5.000 reales
+4	Asistente	5 personas	$4.000 reales
+5	Operación	3 personas	$3.500 reales
+6	Asistente	2 personas	$3.000 reales
+7	Prácticas	1 persona	$1.500 reales
+8	Asesoría	1 persona	$2.500 reales
+9	Consultoría	1 persona	$6.000 reales
+Selecciona la alternativa que hace que los datos de las columnas cantidad y salario se conviertan en valores numéricos, es decir, columnas int y float sin existencia de texto que acompañe a cada valor.
+
+Para ayudarlo con sus pruebas, intente usar el siguiente código para crear el DataFrame df y encontrar la solución para la actividad:
+
+import pandas as pd
+import numpy as np
+
+# datos de la empresa
+datos = {
+    'cargo': ['Gerencia', 'Coordinación', 'Supervisión', 'Analista', 'Asistente', 'Operación', 'Asistente', 'Prácticas', 'Asesoría', 'Consultoría'],
+    'cantidad': ['2 personas', '1 persona', '3 personas', '4 personas', '5 personas', '3 personas', '2 personas', '1 persona', '1 persona', '1 persona'],
+    'salario': ['$10.000 reales', '$8.000 reales', '$7.000 reales', '$5.000 reales', '$4.000 reales', '$3.500 reales', '$3.000 reales', '$1.500 reales', '$2.500 reales', '$6.000 reales']
+}
+
+# transformando el diccionario en DataFrame
+df = pd.DataFrame(datos)
+
+# df es el DataFrame con los datos de la empres
+df
+Copia el código
+Alternativa correta
+Eliminamos los textos que están alrededor de los números con apply y lambda.
+
+df['cantidad'] = df['cantidad'].apply(lambda x: x.replace(' personas', '').replace(' persona', ''))
+df['salario'] = df['salario'].apply(lambda x: x.replace(' reales', ''))
+Luego, transformamos las columnas a tipo numérico con astype.
+
+df['cantidad'] = df['cantidad'].astype(np.int64)
+df['salario'] = df['salario'].astype(np.float64)
+
+Alternativa correta
+Eliminamos los textos que están alrededor de los números con apply y lambda.
+
+df['cantidad'] = df['cantidad'].apply(lambda x: x.replace(' personas', '').replace(' persona', ''))
+df['salario'] = df['salario'].apply(lambda x: x.replace('$', '').replace(' reales', ''))
+Luego, transformamos las columnas a tipo numérico con astype.
+
+df['cantidad'] = df['cantidad'].astype(np.int64)
+df['salario'] = df['salario'].astype(np.float64)
+
+La función replace reemplaza textos con valores vacíos '', eliminándolos de la cadena original. Luego, se debe usar astype para convertir las columnas a numéricas, con el tipo int64 para la columna cantidady float64 para la columna salario.
+
+Alternativa correta
+Eliminamos los textos que están alrededor de los números con apply y lambda.
+
+df['cantidad'] = df['cantidad'].apply(lambda x: x.replace(' personas', ''))
+df['salario'] = df['salario'].apply(lambda x: x.replace('$', '').replace(' reales', ''))
+Luego, transformamos las columnas a tipo numérico con astype.
+
+df['cantidad'] = df['cantidad'].astype(np.int64)
+df['salario'] = df['salario'].astype(np.float64)
+
+ *********************************************************************************************
+08
+Transformación en múltiples columnas
+# Inspeccionar dos o más columnas=> [[]] ya no es una serie como una columna, es un df => .applymap
+datos[['cuota_deposito', 'cuota_limpieza']]=datos[['cuota_deposito', 'cuota_limpieza']].applymap(lambda x: x.replace('$','').replace(',','').strip()) 
+---------------------------------------------------------------------------------------
+En esta clase, aprendimos sobre la transformación de datos numéricos en múltiples columnas utilizando la biblioteca Pandas. Nos enfocamos en las columnas cuota_deposito y cuota_limpieza, que contenían símbolos de dólar y comas, lo que dificultaba su manipulación como números.
+
+Primero, inspeccionamos estas columnas utilizando doble corchete, ya que al trabajar con más de una columna, es necesario hacerlo de esta manera. Luego, discutimos que el método apply solo funciona con series (una única columna), mientras que para trabajar con dataframes (más de una columna), debemos usar applymap.
+
+Al aplicar applymap, eliminamos los símbolos de dólar y las comas, permitiendo que los datos sean transformados a un tipo numérico adecuado. Finalmente, convertimos las columnas a tipo float64, asegurando que los datos estuvieran en el formato correcto para su análisis.
+
+La clase concluyó enfatizando la importancia de realizar transformaciones tanto en datos numéricos como en textos, preparando el terreno para el siguiente video donde se abordarán transformaciones de tipos de datos de textos.
+
+Copiar texto de Luri al portapapeles
+
+ /////////////////////////////////////
+
+datos[['cuota_deposito', 'cuota_limpieza']]=datos[['cuota_deposito', 'cuota_limpieza']].astype(np.float64)
+datos.info()
+**********************************************************************************************
+09
+Desafío: trabajando en otros contextos
+ Siguiente pregunta
+
+Pongamos nuevamente en práctica todo lo que aprendimos durante la clase. He puesto los 2 nuevos conjuntos de datos disponibles para descargar a continuación:
+
+Proyecto Desafío 1: Ventas Online - dados_vendas_clientes.json;
+Proyecto Desafío 2: Administración de Condominios - dados_locacao_imoveis.json.
+Recuerda: Hay dos proyectos de tratamiento que se construirán durante el curso. Así que guarde su código de construcción para cada desafío para poder aplicarlo a desafíos posteriores.
+
+Etapa 2
+
+Proyecto Desafío 1: Ventas Online
+Leímos la base de datos en el desafío anterior, ahora podemos seguir adelante con la transformación de estos datos. Así, el nuevo desafío del proyecto 1 será dividido en algunas metas:
+
+Eliminar datos en listas dentro del DataFrame;
+Verificar tipos de datos;
+Identificar columnas numéricas;
+Transformar la columna numérica a tipo numérico.
+Proyecto Desafío 2: Administración de Condominios
+Leímos la base de datos en el desafío anterior, ahora podemos seguir adelante con la transformación de estos datos. Entonces, de la misma manera que en el proyecto 1, el desafío del proyecto 2 está listado en algunas metas:
+
+Eliminar datos en listas dentro del DataFrame;
+Verificar tipos de datos;
+Identificar columnas numéricas;
+Transformar la columna numérica a tipo numérico.
+Ver opinión del instructor
+Opinión del instructor
+
+Puede haber varias formas de resolver un problema. Presentaré cómo resolví los problemas y esto no quiere decir que estas sean las mejores soluciones, sino que son una opción de solución.
+
+Proyecto Desafío 1: Ventas Online
+
+# Colectar los valores de las columnas y verificar
+columnas = list(datos.columns)
+columnas
+
+# Destrincar las listas con explode
+datos = datos.explode(columnas[1:])
+# Resetear los index de las líneas
+datos.reset_index(drop=True,inplace=True)
+# Observar el DataFrame
+datos
+
+# Verificar los tipos de datos con info
+datos.info()
+
+# La columna numérica es el 'Valor da compra'
+datos['Valor da compra']
+
+# Iniciar la transformación
+# Import de la biblioteca numpy
+import numpy as np
+# Remover los textos presentes en la base
+# Cambiar las comas separadoras del decimal por punto
+datos['Valor da compra'] = datos['Valor da compra'].apply(lambda x: x.replace('R$ ', '').replace(',','.').strip())
+# Cambiar los tipo de datos para float
+datos['Valor da compra'] = datos['Valor da compra'].astype(np.float64)
+# Verificar la transformación
+datos.info()
+Copia el código
+Projecto Desafio 2: Administración de Condominios
+
+# Colectar los valores de las columnas y verificar
+columnas = list(datos.columns)
+columnas
+
+# Destrincar las listas con explode
+datos = datos.explode(columnas[1:])
+# Resetear los index de las líneas
+datos.reset_index(drop=True,inplace=True)
+# Observar el DataFrame
+datos
+
+# Verificar los tipos de datos con info
+datos.info()
+
+# La columna numérica es el 'valor_aluguel'
+datos['valor_aluguel']
+
+# Iniciar la transformación
+# Import de la biblioteca numpy
+import numpy as np
+# Remover los textos presentes en la base
+# Cambiar las comas separadoras del decimal por punto
+datos['valor_aluguel'] = datos['valor_aluguel'].apply(lambda x: x.replace('$ ', '').replace(' reais', '').replace(',','.').strip())
+# Cambiar los tipos de datos para float
+datos['valor_aluguel'] = datos['valor_aluguel'].astype(np.float64)
+# Verificar la transformación
+datos.info()
+Copia el código
+Mis soluciones con el proyecto de los desafíos se realizaron en un notebook Python que estará disponible al final del curso.
+*******************************************************************************
+10
+Lo que aprendimos
+ Siguiente pregunta
+
+En esta aula, aprendimos a:
+
+Identificar y transformar elementos dentro de las listas en una nueva línea del DataFrame con explode;
+Transformar datos textuales en datos numéricos con el método astype;
+Tratar los textos con datos numéricos para transformarlos con apply;
+Tratar varias columnas elemento por elemento con applymap.
+******************************************************************++
+******************************************************************
+03. Datos de texto
+01
+Proyecto del aula anterior
+ Siguiente pregunta
+
+Si lo desea, puede descargar aquí el proyecto del curso en el punto donde paramos la clase anterior.
+*************************************************************************************+
+02
+El problema del texto
+En las descripciones o características que existen en esta base de datos que están representadas por palabras también se pueden extraer valores que se relacionen con los precios pagados por los hospedajes. Es decir ciertas palabras son llaves como: excelente, fantástico, maravilloso y otras palabras que sean llaves negativas como: horrible, nunca más, no se lo recomiendo. Cuando intentamos extraer dichas palabras llaves nos referimos a la tokenización. De cada columna de texto se tratará de hacer una estructura de tokenización simple= Separar el texto en palabras (Tokenización: es dividir el texto en tokens o unidades más pequeñas Ej separar cada palabra, sílabas, conjunto de palabras=>según tipo de aplicación.
+-------------------------------------------------------------------------------
+En esta clase, se abordó la importancia de los datos de texto en el contexto de la precificación de inmuebles. Se destacó que, además de las características numéricas, las descripciones textuales de las propiedades pueden influir en el precio. Para extraer valor de estos textos, se introdujo el concepto de tokenización, que es la división del texto en unidades más pequeñas, o tokens, que en este caso serán palabras.
+
+Se explicó que el primer paso para la tokenización es normalizar el texto, comenzando por convertirlo a minúsculas. Esto se logra utilizando el método lower en Python, después de asegurarse de que la columna de texto sea tratada como un string. Se enfatizó que, aunque los cambios se visualizan, es necesario guardar las modificaciones en el DataFrame.
+
+Finalmente, se mencionó que en la próxima clase se trabajará en la limpieza de caracteres extraños en los textos antes de proceder con la tokenización.
+*******************************************************************+
+03
+Otras formas de tratar el texto
+ Siguiente pregunta
+
+Durante la clase tratamos el texto elemento por elemento usando el comando str que nos permitió trabajar con strings y usar sus métodos nativos. Pero existe otra forma de tratar estos valores elemento por elemento: mediante el método apply. Con eso en mente, considere el siguiente escenario:
+
+Una empresa famosa quiere controlar las menciones de su marca en las redes sociales. Para ello, se recopilaron miles de informes de clientes sobre experiencias con su marca. Ahora, la misión es transformar estos textos para que puedan ser analizados.
+
+Considerando que el DataFrame de pandas con los datos se llama df y que la columna experiencias_clientes contiene los relatos de los clientes sobre la marca, seleccione la alternativa que muestre correctamente el tratamiento de la transformación de letras a mayúsculas en la columna, utilizando el método apply.
+
+Alternativa incorreta
+df['experiencias_clientes'].apply(lambda x: x.upper())
+
+
+Alternativa incorreta
+df['experiencias_clientes'] = df['experiencias_clientes'].apply(lambda x: x.lower())
+
+
+Alternativa incorreta
+df['experiencias_clientes'] = df['experiencias_clientes'].apply(lambda x: x.upper())
+
+
+Se usa apply para aplicar una función a cada elemento de una columna. En este caso, la función lambda se utiliza para transformar todas las letras de la columna experiencias_clientes a mayúsculas. Al usar la función lambda dentro del método apply, estamos aplicando la función elemento por elemento en la columna.
+*************************************************************************
+04
+Eliminando caracteres con Regex= expresión regular que hace una búsqueda de los caracteres que queremos utilizar o eliminar
+---------------------------------------------------------------------------------------
+En esta clase, aprendimos sobre la eliminación de caracteres no deseados en textos utilizando expresiones regulares, conocidas como regex. La tokenización es el proceso que estamos preparando, y para ello es importante limpiar los datos de caracteres especiales que no aportan información relevante para el análisis de datos.
+
+Se explicó que los caracteres como puntos, comas, asteriscos y otros signos de puntuación deben ser eliminados, mientras que ciertos caracteres, como letras y números, deben ser conservados. Para lograr esto, se utiliza el método replace junto con regex, que permite realizar búsquedas más complejas y personalizadas.
+
+Se mostró cómo construir una expresión regular que reemplaza todo lo que no sean letras, números, guiones y comillas simples. Además, se discutió la necesidad de eliminar guiones que no estén acompañados de palabras, utilizando otra expresión regular para identificar esos casos específicos.
+
+Finalmente, se mencionó que este es el primer paso hacia la tokenización, que incluye la normalización del texto y la posible eliminación de stop words en etapas posteriores.
+
+***************************************************************
+05 Para saber más: profundizando en Regex
+ Siguiente pregunta
+
+Regex (o expresión regular) es una secuencia de caracteres que define un patrón de búsqueda en un texto. Es una herramienta poderosa y versátil que le permite buscar, reemplazar y manipular patrones de texto de manera eficiente. Regex se usa ampliamente en diferentes áreas, incluida la programación, la ciencia de datos y el procesamiento de textos.
+
+En la ciencia de datos, las expresiones regulares se utilizan a menudo para procesar datos de texto sin formato. Algunas de estas aplicaciones incluyen limpieza de datos, donde se pueden usar expresiones regulares para buscar y reemplazar ciertos caracteres. También se puede utilizar en proyectos de clasificación; un ejemplo es el uso de expresiones regulares para ayudar a encontrar patrones en el texto de los correos electrónicos, lo que ayuda a clasificar si son spam o no.
+
+En general, las expresiones regulares permiten a los científicos de datos procesar, analizar y clasificar grandes volúmenes de datos de texto de forma eficiente y automatizada. El uso adecuado de expresiones regulares puede ayudar a extraer información valiosa de los datos de texto, además de facilitar la limpieza y organización de esos datos.
+
+Puedes crear una expresión regular con la ayuda del sitio web regex101.com. 
+~ https://regex101.com/
+Si quieres saber más sobre regex y su aplicación en bases de datos, vale la pena leer el artículo Principales casos de uso de Regex para procesamiento de datos, que muestra una aplicación regex en banco de datos.
+
+Puede estudiar expresiones regulares y aprender algunas de sus reglas básicas, como las presentadas en el curso, y a medida que se familiarice con el uso de expresiones regulares, podrá comenzar a explorar otras funciones y características más avanzadas para crear patrones más complejos en sus códigos.
+~ https://www.alura.com.br/artigos/principais-casos-uso-regex-para-tratamento-dados?_gl=1*13b223s*_gcl_au*MTExODE3ODI5OC4xNzQxNDc1ODY4*_ga*MTI5NjQ2NTYzNS4xNzQxNDc1ODY4*_ga_WWRP4FFDZK*czE3NDg1MTc2NjUkbzEzOSRnMSR0MTc0ODUxNzY5MCRqMzUkbDAkaDA.
+**************************************************************************************************
+06
+Tokenizacion de strings: Una vez eliminados los caracteres especiales [usamos regex] ya queda cada registro con una frase en la columna 'descripción_local. Ahora por cada frase generaremos una lista de palabras [usamos split()) y split(',')]
+------------------------------------------------------------------------------------------------------------------
+En esta clase, se abordó el proceso de tokenización de strings utilizando la biblioteca Pandas. Se explicó cómo transformar frases en listas de palabras, separando cada palabra por el espacio, que es el carácter que ya divide las palabras en las frases. Se utilizó el método split() para realizar esta separación y se mostró cómo guardar el resultado en la columna correspondiente del DataFrame.
+
+Además, se discutió cómo trabajar con otra columna llamada comodidades, que contenía datos en un formato que requería limpieza. Se utilizó expresiones regulares (regex) para eliminar caracteres no deseados, como llaves y comillas dobles, y luego se aplicó nuevamente el método split() para convertir el texto limpio en una lista de palabras, utilizando la coma como separador.
+
+Finalmente, se concluyó que se había realizado la manipulación de datos de texto y se mencionó que en las próximas clases se trabajará con datos de tiempo.
+****************************************************************
+07
+Desafío: hazlo tú mismo
+ Siguiente pregunta
+
+Aprendimos a manipular elementos textuales con el comando str. Luego, usamos expresiones regulares para limpiar elementos no deseados en el texto y, finalmente, transformamos el texto tratado en una lista, construyendo un token.
+
+Durante las clases transformamos dos columnas descripcion_local y comodidades buscando la tokenización. Pero aún falta la columna descripcion_vecindad, que también merece la pena transformar.
+
+Por lo tanto, en esta actividad te propongo realizar el proceso de tokenización para la columna descripcion_vecindad presente en el conjunto de datos datos_hosting.json.
+
+No dudes en seguir los mismos pasos dados en clase o, si lo prefieres, realizar otras mejoras, como eliminar algunos caracteres o palabras vacías. En el apartado “Opinión del instructor” encontrarás una posible resolución para esta actividad.
+
+Ver opinión del instructor
+Opinión del instructor
+
+Para procesar los datos de la columna descripcion_vecindad realicé los mismos pasos seguidos en clase. Pero como se explicó anteriormente, usted es libre de aplicar otros procesos al tratamiento.
+
+# Transformamos el texto en letras minúsculas
+datos['descripcion_vecindad'] = datos['descripcion_vecindad'].str.lower()
+# Substituímos los caracteres especiales
+datos['descripcion_vecindad'] = datos['descripcion_vecindad'].str.replace('[^a-zA-Z0-9\-\']', ' ', regex=True)
+datos['descripcion_vecindad'] = datos['descripcion_vecindad'].str.replace('(?<!\w)-(?!\w)', '', regex=True)
+# Transformamos el texto en lista, formando el token
+datos['descripcion_vecindad'] = datos['descripcion_vecindad'].str.split()
+datos.head()
+
+*******************************************************************************
+
+08
+Desafío: trabajando en otros contextos
+ Siguiente pregunta
+
+Pongamos nuevamente en práctica todo lo que aprendimos durante la clase. He puesto los 2 nuevos conjuntos de datos disponibles para descargar a continuación:
+
+Proyecto Desafío 1: Ventas Online - dados_vendas_clientes.json;
+Proyecto Desafío 2: Administración de Condominios - dados_locacao_imoveis.json.
+Recuerda: Hay dos proyectos de tratamiento que se construirán durante el curso. Así que guarde su código de construcción para cada desafío para poder aplicarlo a desafíos posteriores.
+
+Etapa 3
+
+Proyecto Desafío 1: Ventas Online
+En el paso 2, trabajamos en la transformación de datos numéricos. Ahora podemos trabajar con valores textuales.
+
+Debido a una inestabilidad en el sitio web de la empresa, tuvimos problemas con los nombres de los clientes durante el guardado. Esto resultó en una columna de nombres de clientes con una combinación de letras, mayúsculas y minúsculas, números y otros caracteres.
+
+Sabiendo esto, manipula los textos de la columna Cliente para que el resultado sean los nombres de los clientes en letras minúsculas, con ausencia de caracteres especiales o números.
+
+Proyecto Desafío 2: Administración de Condominios
+En el paso 2, trabajamos en transformar los datos numéricos. Ahora podemos trabajar con valores textuales.
+
+Buscando explicar la organización de la identificación de los apartamentos, durante la creación del conjunto de datos se añadió el texto (blocoAP). Este texto informa que los nombres de los apartamentos están organizados con la letra mayúscula seguida del número del apartamento. Sin embargo, esto no aporta ninguna información a nuestros datos, por lo que resulta interesante eliminar este texto del conjunto de datos.
+
+Con esto, manipule los textos de la columna apartamento para eliminar el texto (blocoAP) del DataFrame.
+
+Ver opinión del instructor
+Opinión del instructor
+
+Puede haber varias formas de resolver un problema. Presentaré cómo resolví los problemas y esto no quiere decir que estas sean las mejores soluciones, sino que son una opción de solución.
+
+Proyecto Desafío 1: Ventas Online
+
+# Transformar los textos de Cliente para texto en minúscula
+datos['Cliente'] = datos['Cliente'].str.lower()
+# Verificar el resultado
+datos.head()
+
+# Opción de substitución - necesario verificar el resultado de la substitución
+# Regex no selecciona todas las letras de a-z y espacios en blanco ' '
+# Todo que satisface el regex es borrado
+datos['Cliente'].str.replace('[^a-z ]', '', regex=True)
+
+# Realizar la substitución de los datos en la columna textual
+datos['Cliente'] = datos['Cliente'].str.replace('[^a-z ]', '', regex=True).str.strip()
+# Visualizar el resultado final
+datos.head()
+Copia el código
+Projecto Desafio 2: Administración de Condominios
+
+# Opción de substitución - necesario verificar el resultado de la substitución
+# Fue necesario adicionar la barra '\' para ser considerados los paréntesis como caracteres literales
+datos['apartamento'].str.replace(' \(blocoAP\)', '')
+
+# Realizar la substitución de los datos en la columna textual
+datos['apartamento'] = datos['apartamento'].str.replace(' \(blocoAP\)', '')
+# Visualizar el resultado final
+datos
+Copia el código
+Mis soluciones con el proyecto de los desafíos se realizaron en un notebook Python que estará disponible al final del curso.
+	
+********************************************************************************
+09
+Lo que aprendimos
+ Siguiente pregunta
+
+En esta aula, aprendimos a:
+
+Manipular elementos textuales en un DataFrame;
+Trabajar con expresiones regulares (regex) para tratar el texto;
+Transformar textos en listas;
+Realizar el proceso de tokenización de strings.
+
+*****************************************************************+
+****************************************************************
+04. Datos de tiempo
+01
+Proyecto del aula anterior
+ Siguiente pregunta
+
+Si lo desea, puede descargar aquí el proyecto del curso en el punto donde paramos la clase anterior.
+
+ Discutir en el Foro
+ Siguient
+*************************************************************************
+02
+Para saber más: el tipo datetime
+ Siguiente pregunta
+
+La clase datetime es un tipo de datos que representa una fecha y hora específicas en Python. Permite trabajar y manipular datos de año, mes, día, hora, minuto, segundo y microsegundo, así como días de la semana, como lunes, martes, miércoles, etc. Esta clase está definida en el módulo datetime y es fundamental para manipular fechas y horas en Python. Con él es posible realizar operaciones de cálculo de diferencias entre fechas, formatear fechas y horas en diferentes formatos, además de ser muy útil para analizar datos que involucran series temporales.
+
+Con la biblioteca Pandas es posible realizar diversas operaciones con fechas y horas, como convertir datos de cadena a datetime, filtrar datos en función de intervalos de tiempo específicos, agregar datos por hora, día, mes o año, entre otras funcionalidades. Por tanto, con esta biblioteca es posible realizar diversas operaciones con fechas de forma sencilla y eficiente dentro de un conjunto de datos.
+
+Biblioteca datetime
+
+Podemos trabajar directamente con datetime a través de la biblioteca datetime, una biblioteca estándar de Python que proporciona clases para trabajar con fechas y horas. Con esta biblioteca, puede crear objetos de fecha y hora, realizar cálculos de tiempo, formatear fechas y horas en diferentes formatos y mucho más.
+
+Dentro de la biblioteca datetime, existe la clase de fecha y hora, que representa una fecha y hora específicas. Vea un ejemplo:
+
+import datetime
+
+# creando un objeto datetime con la fecha y hora actual
+ahora = datetime.datetime.now()
+
+print("Fecha y hora actual:", ahora)
+Copia el código
+En este ejemplo, el método now() de la clase datetime se utiliza para crear un objeto que representa la fecha y hora actuales. El objeto resultante se almacena en la variable ahora y luego se imprime en la pantalla usando la función print().
+
+Otra clase importante en la biblioteca datetime es la clase date, que representa solo una fecha. Vea un ejemplo:
+
+import datetime
+# creando un objeto date con la fecha de hoy
+hoy = datetime.date.today()
+
+print("Fecha de hoy:", hoy)
+Copia el código
+En este ejemplo, el método today() de la clase date se utiliza para crear un objeto que representa la fecha de hoy. El objeto resultante se almacena en la variable hoy y luego se imprime en la pantalla usando la función print().
+
+La biblioteca datetime también le permite realizar operaciones matemáticas con fechas y horas. Vea un ejemplo de cómo calcular la diferencia entre dos fechas:
+
+import datetime
+
+# creando dos objetos date con fechas diferentes
+data_1 = datetime.date(2022, 1, 1)
+data_2 = datetime.date(2023, 1, 1)
+
+# calculando la diferencia entre las dos fechas
+diferencia = data_2 - data_1
+
+print("Diferencia entre las dos fechas:", diferencia)
+Copia el código
+En este ejemplo, se crean dos objetos date con fechas diferentes. Luego se utiliza el operador de resta para calcular la diferencia entre las dos fechas. El resultado se almacena en la variable diferencia y luego se imprime en la pantalla usando la función print().
+
+Para profundizar en los usos del tipo datetime, consulte el artículo Python datetime: ¿Cómo configuro la fecha y la hora en Python? y también la documentación de la biblioteca datetime.
+
+~ https://www.alura.com.br/artigos/lidando-com-datas-e-horarios-no-python?_gl=1*1ezkp2d*_gcl_au*MTExODE3ODI5OC4xNzQxNDc1ODY4*_ga*MTI5NjQ2NTYzNS4xNzQxNDc1ODY4*_ga_WWRP4FFDZK*czE3NDg3MTc4NzEkbzE0MiRnMSR0MTc0ODcxOTMzMyRqNTkkbDAkaDA.
+
+~ https://docs.python.org/3/library/datetime.html
+
+********************************************************************************************
+03
+Transformando datos de tiempo
+Usaremos una base adicional que contiene los lugares disponibles de varios inmuebles de alojamiento durante el año 2016. Muestra la oferta de propiedades disponibles para alquiler durante dicho año. Esto es interesante para la calificación inteligente que es el foco de nuestra aplicación. Manejaremos datos de tiempo con la biblioteca datetime
+Al pasar la columna fecha de objeto a datetime, python me permitirá agregar por período de tiempo, agregar por meses, agregar por días (agregar por horas, etc)
+----------------------------------------------------------------------------------
+En esta clase, aprendimos sobre la manipulación de datos de tiempo utilizando la biblioteca Pandas. Comenzamos cargando un archivo JSON llamado inmuebles_disponibles.json en Google Colab y lo importamos a un dataframe llamado data_dt.
+
+Observamos las primeras cinco filas del dataframe y utilizamos el método .info() para examinar los tipos de datos de las columnas. Notamos que la columna de fecha estaba clasificada como tipo object, lo cual no es adecuado para datos de tiempo. Para solucionar esto, utilizamos el método to_datetime() de Pandas para convertir la columna de fecha a un tipo de dato datetime.
+
+Finalmente, guardamos esta transformación en la columna original y verificamos que el tipo de dato se había actualizado correctamente. Esto nos permitirá realizar análisis más avanzados, como agregar datos por periodos de tiempo. En la próxima clase, aprenderemos a extraer valores específicos de esta columna de fechas.
+///////////////////////////////////////////////////////////////////////////////////////////
+04
+Transformando texto en fechas
+ Siguiente pregunta
+
+Usted es responsable de analizar los datos de una empresa que vende productos. Recibiste un conjunto de datos con información sobre las ventas realizadas en los últimos meses, pero notaste que la columna "Fecha de venta" está en formato de cadena (texto), no en formato de fecha. Para realizar el análisis es necesario convertir esta columna al formato de fecha.
+
+Considere el siguiente conjunto de datos con información sobre las ventas de la empresa:
+
+Fecha de venta	valor
+0	01/01/2022	100
+1	05/02/2022	150
+2	10/03/2022	200
+3	15/04/2022	250
+4	18/04/2022	80
+5	20/04/2022	180
+Seleccione la alternativa que transforme los datos de la columna Fecha de venta hacia un tipo datetime.
+
+Para ayudarlo con sus pruebas, intente usar el siguiente código para crear el DataFrame datos y encontrar la solución para la actividad:
+
+import pandas as pd
+
+# Creando el DataFrame con las informaciones
+datos = pd.DataFrame({
+    'Fecha de venta': ['01/01/2022', '05/02/2022', '10/03/2022', '15/04/2022','18/04/2022','20/04/2022'],
+    'valor': [100, 150, 200, 250,80,180]
+})
+
+# Mostrando el DataFrame
+print(datos)
+Copia el código
+Alternativa incorreta
+pd.to_datetime(datos['Fecha de venta'], format='%d/%m/%Y)
+
+
+Alternativa incorreta
+datos['Fecha de venta'] = pd.to_datetime(datos['Fecha de venta'], format='%d/%m/%Y')
+
+
+El formato especificado %d/%m/%Y coincide con el formato original de la fecha en el string. Usando la función pd.to_datetime convertimos la columna “Fecha de venta” y con el parámetro format='%d/%m/%Y' podemos indicar el formato correcto del string, que es "día/mes/año".
+
+Alternativa incorreta
+datos['Fecha de venta'] = pd.to_datetime(datos['Fecha de venta'], format='%d/%Y/%m')
+*********************************************************************************************+
+05
+Manipulando datos de tiempo
+La info muestra cada registro con su fecha con su lugar disponible (False/True) Precio(None/$25). Pero mejor es hacer un relatorio por mes de si estuvo tal o cual lugar disponible en dicho mes. Al ser datos del 2016 podría hacer para cada mes del año si lugar disponible (False/True) => Veremos qué meses tienen mayor demanda y qué otros NO.
+----------------------------------------------------------
+En esta clase, aprendimos a manipular datos de tiempo utilizando la biblioteca Pandas en Python. Comenzamos asegurándonos de que nuestra variable fecha estuviera correctamente configurada como un tipo de dato DateTime. Luego, examinamos nuestro DataFrame llamado Dt_data para entender mejor los datos que teníamos.
+
+El objetivo principal fue agrupar la disponibilidad de propiedades por mes para analizar la demanda a lo largo del tiempo. Para ello, utilizamos el método strftime para transformar la fecha en un formato que solo mostrara el año y el mes. Esto nos permitió agrupar los datos utilizando el método groupBy, contando cuántos lugares estaban disponibles en cada mes.
+
+Finalmente, discutimos cómo esta información puede ser útil para establecer precios más inteligentes en función de la demanda estacional. También mencionamos la posibilidad de crear informes más específicos al agrupar por año, mes y otros identificadores, como el ID de la propiedad.
+
+La clase concluyó con la invitación a seguir explorando cómo los datos de tiempo pueden ayudar a tomar decisiones más informadas en el desarrollo de algoritmos.
+****************************************************************************************************+
+06
+Desafío: hazlo tú mismo
+ Siguiente pregunta
+
+En esta clase, aprendimos cómo manipular datos temporales usando datetime. Entendimos cómo transformar una columna a fecha y hora y luego manipular estos datos. Aun así, no todos los datos del conjunto inmuebles_disponibles.json fueron tratados.
+
+Durante las clases de este curso, descubrimos cómo transformar y trabajar con valores numéricos, por ejemplo, eliminando valores numéricos dentro de un texto y transformándolos en un tipo numérico, como int64 o float64.
+
+Sabiendo esto, en esta actividad te propongo transformar los datos de la columna precio del conjunto de datos inmuebles_disponibles.json al tipo numérico float64. Recordando que, antes de hacer esto, debes llenar los valores vacíos de la columna con un valor. Una sugerencia: reemplazar con el string '0.0'.
+
+No dudes en seguir los mismos pasos dados en clase o, si lo prefieres, realizar otras mejoras, como eliminar algunos caracteres o palabras vacías. En el apartado “Opinión del instructor” encontrarás una posible resolución para esta actividad.
+
+Ver opinión del instructor
+Opinión del instructor
+
+Para transformar los datos de la columna precio, realicé los mismos pasos que seguí en clase. Pero como se explicó anteriormente, usted es libre de aplicar otros procesos al tratamiento.
+
+# importamos la biblioteca numpy
+import numpy as np
+
+# utilizamos el método fillna para llenar los elementos vacíos por '0.0'
+# definimos el parámetro de inplace para True para substituir en el DataFrame
+dt_data['precio'].fillna('0.0', inplace = True)
+
+# borramos el $ y las comas con apply lambda
+dt_data['precio'] = dt_data['precio'].apply(lambda x: x.replace('$', '').replace(',',''))
+
+# transformamos los tipos de datos para float64
+dt_data['precio'] = dt_data['precio'].astype(np.float64)
+
+# observamos el resultado final
+dt_data
+
+*****************************************************************************************************************
+07
+Desafío: trabajando en otros contextos
+ Siguiente pregunta
+
+Pongamos nuevamente en práctica todo lo que aprendimos durante la clase. He puesto los 2 nuevos conjuntos de datos disponibles para descargar a continuación:
+
+Proyecto Desafío 1: Ventas Online - dados_vendas_clientes.json;
+Proyecto Desafío 2: Administración de Condominios - dados_locacao_imoveis.json.
+Recuerda: Estos dos proyectos de tratamiento se construyeron durante el curso. Por lo tanto, considere desarrollos previos para realizar este paso final.
+
+Etapa 4
+
+Proyecto Desafío 1: Ventas Online
+En los pasos anteriores ya hemos trabajado con varios tipos de datos, ahora podemos trabajar con datos de tiempo.
+
+En la columna Fecha de venta tenemos fechas en el formato 'día/mes/año' (dd/mm/AAAA). Transforme estos datos al tipo datetime y busque una forma de visualización de subconjunto que pueda contribuir al objetivo del contexto en el que se insertan los datos.
+
+Si no recuerdas el problema del Proyecto Desafío 1, te dejo el texto de la situación a continuación para que sea más fácil encontrar la información:
+
+El objetivo de este proyecto es analizar los resultados de un evento con los clientes de una empresa de venta online. Se recopiló un conjunto de datos que contiene los clientes que gastaron más en productos dentro de los 5 días posteriores a la venta, que es la duración del evento. Este análisis identificará al cliente con la mayor compra esa semana, quien recibirá un premio de la tienda, y posteriormente, puede ayudar a la empresa a crear nuevas estrategias para atraer más clientes.
+Copia el código
+Proyecto Desafío 2: Administración de Condominios
+Al igual que en el Proyecto Desafío 1, trabajamos con todas las columnas excepto las que involucran fechas.
+
+En las columnas datas_de_pagamento y datas_combinadas_pagamento tenemos fechas en el formato 'día/mes/año' (dd/mm/AAAA). Transforme estos datos al tipo datetime y busque una forma de visualización de subconjunto que pueda contribuir al objetivo del contexto en el que se insertan los datos.
+
+Si no recuerdas el problema del Proyecto Desafío 2, te dejo el texto de la situación a continuación para que sea más fácil encontrar la información:
+
+Administrar condominios es una tarea que requiere mucha atención y organización. Entre las diversas responsabilidades de gestión se encuentra el cobro del alquiler a los inquilinos. Para garantizar la buena salud financiera de la empresa, es fundamental que estos pagos se realicen de forma regular y puntual. Sin embargo, sabemos que esto no siempre sucede. Teniendo esto en cuenta, propongo un desafío de procesamiento de datos con el objetivo de analizar el retraso en el pago de la renta en el condominio ficticio de algunos residentes.
+Copia el código
+Ver opinión del instructor
+Opinión del instructor
+
+Puede haber varias formas de resolver un problema. Presentaré cómo resolví los problemas y esto no quiere decir que estas sean las mejores soluciones, sino que son una opción de solución.
+
+Proyecto Desafío 1: Ventas Online
+
+# Transformar para el tipo datetime definiendo el formato de fecha como DD/MM/AAAA ('%d/%m/%Y')
+datos['Data de venda'] = pd.to_datetime(datos['Data de venda'], format='%d/%m/%Y')
+# Visualizar el resultado
+datos
+
+# Verificar el resultado de la transformación
+datos.info()
+
+# Calcular el total recaudado en compras por cada cliente
+total_compras = datos.groupby(['Cliente'])['Valor da compra'].sum()
+# Visualizar el resultado
+total_compras
+Copia el código
+Projecto Desafio 2: Administración de Condominios
+
+# Transformar para el tipo datetime definiendo el formato de fecha como DD/MM/AAAA ('%d/%m/%Y')
+datos['datas_combinadas_pagamento'] = pd.to_datetime(datos['datas_combinadas_pagamento'], format='%d/%m/%Y')
+datos['datas_de_pagamento'] = pd.to_datetime(datos['datas_de_pagamento'], format='%d/%m/%Y')
+
+# Visualizar el resultado
+datos
+
+# Para contribuir en la solución del contexto es posible calcular la diferencia de días
+# entre la fecha combinada y la fecha de pagamento con dt.days
+datos['atraso'] = (datos['datas_de_pagamento'] - datos['datas_combinadas_pagamento']).dt.days
+
+# Observar el nuevo DataFrame
+datos
+
+# Calcular el promedio de tiempo de atraso por apartamentos
+media_atraso = datos.groupby(['apartamento'])['atraso'].mean()
+
+# Visualizar el resultado
+media_atraso
+Copia el código
+Mis soluciones con el proyecto de los Desafíos se realizaron en un notebook de Python al que puedes acceder en los enlaces a continuación:
+
+Proyecto de desafío 1: ventas en línea;
+Proyecto desafío 2 - administración de condominios.
+***************************************************************************************************+
+08
+Proyecto final
+ Siguiente pregunta
+
+Si lo desea, puede descargar aquí el proyecto final del curso.
+**************************************************************************************************+
+09
+Lo que aprendimos
+ Siguiente pregunta
+
+En esta aula, aprendimos a:
+
+Identificar el tipo de datos datetime;
+Transformar datos para el tipo datetime y
+Manipular columnas de tipo datetime a través de métodos.
+****************************************************************************************************
+ 10 Conclusión
+En esta clase del curso de Pandas, nos enfocamos en la manipulación y transformación de datos, especialmente en el contexto de la fijación de precios inteligente. Aprendimos a procesar datos en listas y a transformar datos numéricos, incluyendo aquellos que contienen caracteres textuales, como los símbolos de dólar. También trabajamos con expresiones regulares (regex) para manipular datos de texto y nos familiarizamos con el tipo de dato de fecha y hora, transformando nuestras bases de datos al tipo datetime, lo cual es crucial para generar informes posteriores.
+
+Además, exploramos cómo crear y manipular bases de datos relacionadas con datos de tiempo y cómo generar reportes a partir de esta información. Finalmente, se nos animó a compartir nuestros proyectos en GitHub y LinkedIn, y a proporcionar retroalimentación sobre el curso. La práctica y la interacción con otros estudiantes son fundamentales para consolidar el aprendizaje. ¡Es un momento emocionante para aplicar lo aprendido!
+************************************************************************************************
+~ https://www.aluracursos.com/blog/ampliando-la-analisis-con-el-describe
+~ https://www.aluracursos.com/blog/pandas-python-que-es-para-que-sirve-como-descargar
+*****************************************************************+
+YouTube
+Transforma y Limpia Datos Textuales en Pnadas #aluramás
+¡Domina la Manipulación de Cadenas con la Biblioteca Pandas!
+
+En este video, nuestra mentora Ingrid Silva te guiará a través de la manipulación de strings utilizando la potente biblioteca Pan …
+7 comentarios
+Sergio TOLABA
+Añade un comentario...
+
+Español (generados automáticamente)
+00:00
+Hola Sean bienvenidos a más una lura más soy Ingrid y hago parte del equipo de escos aquí en elur latón soy una mujer negra de cabellos cortos y detrás de mí hay una pared de blanca con losz hoy vamos a estar aprendiendo Cómo hacer la manipulación de String utilizando la biblioteca pandas de python te [Música] espero bueno se está utilizando el Go colab para hacer la manipulación de las strings vamos a este problema la empresa Fast delivre que ofrece un servicio de entrega de alimentos cuenta con una base
+
+00:42
+de datos de clientes y pedidos que está en constante crecimiento inicialmente toda la información de sus clientes como nombre dirección y teléfono se almacenaba en una hoja de cálculo simple en Excel sin embargo con el tiempo esta hoja ha crecido considerablemente y y ahora han decidido contratarte para manipular los datos para estudios futuros o sea toda la manipulación que vamos a estar haciendo va a venir de la base de datos de clientes de la empresa Fast deliver Pero antes de empezamos tenemos que traer estos datos a nuestro
+
+01:16
+Google colab para hacer esto vamos acá en la izquierda archivos carga de archivos y traemos nuestro archivo miren nuestro archivo es está en el formato csb cuando trabajamos con pandas trabajamos con dataframe entonces para empezar tenemos que transformar nuestro archivo csb y un Data frame vamos azar haciendo la importación de la biblioteca pandas escribimos import pandas aspd ent DF que va a ser el nombre de nuestro dataframe igual pdr gu csb paréntesis comilla y el nombre de nuestro archivo banco K bajo
+
+02:19
+clientes csb ent DF para ver cómo se queda nuestro Data framing acá está nuestro dataframe tiene tres tablas nombre dirección y teléfono vamos a ver lo que los clientes nos piden bueno tenemos que padronizar los nombres de los clientes en letra mayúscula padronizar la columna de teléfonos a este sego siguiente formato vamos a ver dos dígitos que el código postal un espacio en blanco recuerden espacio en blancos también son caracteres cinco dígitos gu cuatro dígitos También tenemos que crear una columna Únicamente con los con los
+
+03:08
+códigos postales Y por último separa la tabla dirección en dos columnas calle y número vamos a empezar con la padroniza de los nombres de los clientes en mayúscula para hacer esto en pandas tenemos un método que se llama ap ello transforma todos los caracteres en mayúscula vamos a escribí DF certe comilla nombre punto str porque estamos trabajando con una series punto up paréntesis vamos a ver Acá está nuestra tabla nombre con todos los nombres en mayúsculo ahora tenemos que poner esta tabla en nuestro
+
+03:57
+dataframe para hacer esto vemos acá DF hasta la cera de los cetes damos control c control v y separamos por un igual ahora escribimos DF para ver cómo se quedó nuestro dataframe Acá está todos los nombres en mayúscula ahora vamos a el próximo paso Bueno ahora tenemos que padronizar la columna teléfono a este seguiente formato vamos a ver nuevamente nuestro Data frame bueno acá en la tabla teléfono ya tenemos este formato Miren la línea cero tenemos los dos dígitos un espacio en blanco cinco dígitos gu cuatro dígitos
+
+04:47
+pero si miramos la línea 5 código en el código de área tenemos estos parentesis entonces lo que tenemos queer hacer acá tenemos que quitar estos paréntesis pero en vez de quitar vamos a hacer lo cambio de los paréntesis por un espacio en blanco podemos hacer esto utilizando el método replace y yo cambia un carácter por otro vamos a escribir DF cochete comillas telefono punto str replace paréntesis comilla paréntesis solo de uno lado por qué Porque replace solo trabaja con carácter prz o sea tenemos que repetir desde
+
+05:46
+punto str hasta el final y cambiar el paréntesis de la izquierda por la derecho ya podemos hacer esto por completo ahora coma comillas sin nada sin nadie coma reject igual a false igual fal porque no estamos trabajando con expresiones regulares pero sí con caracteres si no sabes qué es una expresión regular Voy a dejarte un artículo abajo de este vídeo para que sepas mejor Qué son expresiones regular porque en este vamos a estar trabajando mucho con expresiones regulares porque es muy importante
+
+06:30
+cuando estamos haciendo la manipulación de String Vamos a continuar igual a f vamos a ver hasta acá y acá está en lado izquierdo los paréntesis se qu quitó Vamos a continuar punto str replace paréntesis comilla paréntesis de la derecha comilla coma comilla coma reject ig a false ahora Solo nos falta poner todo esto código a nuestro dataframe entonces a partir de DF hasta el final de la Primero cochete damos un control C control e y separem por un igual ahora damos un ente escribimos DF y ejecutemos
+
+07:41
+acá está la tabla teléfono con el padrón que los clientes no he pedido Bueno ahora tenemos que crear una tabla con los códigos postales para hacer esto vamos a volver acá nuestro dataframe en la tabla dirección tenemos los caracteres calle número de la casa y el código postal solo queremos el código postal entonces para hacer esto vamos a estar utilizando una expresión que se llama ex que va a extraer el código postal de nuestra tabla dirección Pero si pemos dirección va a extraer todos estos caracteres y no esto que lo queremos
+
+08:27
+solo queremos el código postal Entonces tenemos que hacer una búsqueda hasta el código postal para hacer esto vamos a estar utilizando otra expresión una expresión regular vamos a escribir DF cete comilla dirección str punct paréntesis comilla paréntesis nuevamente contra baja de esta contra baja de representa un dígito que va de 0 a 9 ahora llaves para representar cuántos dígitos queremos cinco Porque el código postal empieza con cinco dígitos gu después tres dígitos ahora gu contrab nuevamente llaves y
+
+09:31
+vamos a ver cómo se quedó Acá está tenemos la tabla con los códigos postal ahora vamos a poner vamos a crear nuestra tabla código postal volvemos al inicio de nuestro código escribimos DF cet comillas CP voy a nombrar corto corto para que no se quede grande igual y acá está damos un ent DF vamos a ver Acá está nuestra tabla CP con el código postal ahora no necesitamos más que el código postal se quede en la tabla dirección vamos a quitar de ahí utilizando la el método replace para cambiar el código postal por un espacio
+
+10:25
+en blanco vamos a escribir DF cochete comillas dirección str replace paréntesis comilla vamos a estar utilizando la misma expresión regular anteriormente para hacer la búsqueda por el código postal coma comillas coma reject igual a true porque ahora Estamos trabajando con con expresión regular vamos a ver Acá está la tabla dirección no tiene más el código postal cuando estamos trabajando con expresiones regulares todos los caracteres tantos los digitos con un espacio en blanco son importantes de más adelante Vamos a continuar
+
+11:30
+trabajando con la tabla dirección Entonces tenemos que quitar Estos espacios en blanco de acá para no tener errores vamos a hacer esto utilizando el método strip para quitar est espacio en blanco Entonces vamos a poner punto strip Oh me olvidé del punto str str strip paréntesis vamos a ver si ha cambiado nos he cambiado nada porque estamos quitando un espacio enan ahora tenemos que poner todo esto código en nuestra Data vamos a escribir comillas dirección y Igual vamos al final del código damos ddf vamos a
+
+12:36
+ver Acá está tenemos la tabla CP y no tenemos más el código postal en nuestra tabla dirección vamos ahora al último paso bueno como último paso tenemos que transformar la tabla dirección en dos tablas calle y número tenemos un método que hace eso en pandas que transforma una tabla en dos que el método split pero para que haga esta separación él precisa de un delimitado de un carácter delimitado Si volvemos acá en nuestra tabla dirección vamos a ver en la línea cero que tenemos una coma que separa la calle del número de
+
+13:24
+la casa vamos a estar utilizando entonces la coma como nuestro delimitador vamos a escribir tf cochete comill dirección str punto split paréntesis comilla coma coma nuevamente expand ig a true ese exp true es la afirmación que estamos dando al método split para que separe la tabla de dirección en dos vamos a ver Acá está el funcionado pero Miren la línea dos Ah en la segunda tabla tenemos Non y el número está en la primera tabla aú No es eso que que lo queremos por qué esto está aconteciendo volvemos a
+
+14:31
+nuestro Data frame acá en la tabla dirección nuevamente en la línea dos no tenemos una separación por coma así como en la línea 10 también no tenemos una separación por coma Entonces esto método no vaas a funcionar lo que tenemos que hacer tenemos que hacer una búsqueda a partir de un espacio en blanco después por dígitos hasta el final de la cadena o sea tenemos que utilizar otra expresión regular acá vamos a escribir entonces DF cochete comillas dirección punto strit paréntesis comillas vamos a escribir contra baja s
+
+15:30
+que vas a representar nuestro espacio en blanco paréntesis ahora vamos a estar haciendo un local Head o sea una afirmación de anticipación positiva Qué vas a hacer ella vas a verificar si después de la parte después del espacio consiste solo dígitos hasta el final de la cadena Entonces vamos a escribir punto de interrogación igual cont trabaja de más y el símbolo de dólar que vas a representar el final de la cadena vamos a vamos a ver si funcionó mm no es funcionado Por qué Porque estamos utilizando método split que
+
+16:19
+necesita de la afirmación para separar o sea acá tenemos que poner coma expand igual true no olviden de esta parte Acá está las dos tablas la calle y un número mm pero aún tenemos la coma No necesitamos más vamos a crear las dos tablas ahora y poner esto código y poner más un código que vas a hacer utilizar el método repace para quitar esta coma de nuestra tabla calle Entonces vamos a escribir tf cete cochete nuevamente porque estamos trabajando con dos tablas comillas calle coma comilla número igual DF cochete
+
+17:25
+comilla dirección pun str replace paréntesis comillas coma coma nuevamente comillas coma reject igual a false y ahora solo tenemos que poner El restante del código que vas a hac str punto split Abre paréntesis la expresión que utilizamos que va ser contra vara s paréntesis puntoo interrogación igual contra baja de má y el símbolo de dólar no olvide Tex para hacer la separación de las dos tablas y damos un DF para ver cómo se quedó nuestra Data frame ahora acá está solo tener ahora más una cosa que
+
+18:30
+tenemos que hacer ahora no necesitamos más de la tabla dirección vamos a quitar de nuestro dataframe para hacer esto vamos a utilizar nuestro último método que es el método droping vamos a escribir DF igual a DF punto droping paréntesis comill direc coma axis axis ig porque estamos quitando una tabla y no una línea si fuera una línea poníamos cero y damos enter DF vamos a ver ahora y acá sin la tala dirección hemos hecho todos los cambios que los clientes nos pedido felicitaciones por llegado hasta el final de este l más hemos visto
+
+19:31
+diversos métodos vamos a hacer un capítulo de cada un de él bueno empezamos con el método up para transformar las estring de la tabla nombre en mayúsculo utilizamos la el método repace para cambiar el carácter de paréntesis por un espacio en blanco en el código de área de la tabla teléfono utilizamos el método str para extraer el código postal Delta tabla dirección y crear una nueva tabla utilizamos el método strip para quitar los espacios en blanco de cuando cambiamos el código postal por un espacio en blanco utilizamos el método
+
+20:14
+split para transformar la tabla dirección en dos tablas calle y número y por último utilizamos el método Drop para quitar la tabla de dirección de nuestro Data frame si ha gustado de este Alor más te invito a comentar ctir y nos seguimos en YouTube te espero en en un próximo vídeo hasta luego
+
+
+Todos
+
+De la serie
+
+Alura Latam
+
+Programación
+
+Asignaturas
+
+Informaciones
+
+Aprendizaje
+
+Relacionados
+
+
+11:39
+Reproduciendo
+Domina el ETL en Power BI Usando Python #aluramás
+Alura Latam
+256 visualizaciones hace 9 días
+
+
+**********************************************************************************
+
+    
+
+	
+
+
+
+
